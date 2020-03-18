@@ -8,12 +8,10 @@ class ScrabbleTest < Minitest::Test
   end
 
   def test_whitespace_scores_zero
-    skip
     assert_equal 0, Scrabble.new(" \t\n").score
   end
 
   def test_nil_scores_zero
-    skip
     assert_equal 0, Scrabble.new(nil).score
   end
 
@@ -37,7 +35,4 @@ class ScrabbleTest < Minitest::Test
     assert_equal 41, Scrabble.new('OXYPHENBUTAZONE').score
   end
 
-  def test_convenient_scoring
-    assert_equal 13, Scrabble.score('alacrity')
-  end
 end

@@ -1,7 +1,6 @@
 
-
 class Scrabble
-  require 'pry'
+
   SCRABBLE_SCORES = {
     'a' => 1, 'e' => 1, 'i' => 1, 'o' => 1, 'u'=> 1, 'l' => 1, 'n' => 1, 'r' => 1, 's' => 1, 't' => 1,
     'd' => 2, 'g' => 2,
@@ -17,9 +16,12 @@ class Scrabble
   end
 
   def score
+    return 0 if @word.nil?
+    
     total_score = 0
     split_word = @word.chars
     split_word.each do |letter|
+      next if score_letter(letter) == nil
       total_score += score_letter(letter)
     end
     return total_score
